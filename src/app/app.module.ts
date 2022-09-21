@@ -11,6 +11,7 @@ import { FormDetailsComponent } from './form-details/form-details.component';
 import { FormContactComponent } from './form-contact/form-contact.component';
 import { FormCalculationComponent } from './form-calculation/form-calculation.component';
 
+
 @NgModule({
   declarations: [
     AppComponent,
