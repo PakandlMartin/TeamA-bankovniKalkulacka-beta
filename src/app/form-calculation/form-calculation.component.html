@@ -1,0 +1,8 @@
+<form [formGroup] = "infoAboutCalculation" (ngSubmit) = "onSubmit()">
+    <div class="form-calculation" >
+    <h2>Úvěrová kalkulačka</h2>
+    <input type="number" formControlName="amount" id="amount" placeholder="Výše úvěru" min="5000" max="1200000">
+    <input type="text" formControlName="" id="time" placeholder="Doba splácení">
+    <button type="submit" class="btn" [disabled]="btnDisabled" (click) = "addInfoAboutCalc()">Spočítat</button>
+    </div>
+</form>
