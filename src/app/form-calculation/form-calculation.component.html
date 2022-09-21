@@ -1,8 +1,38 @@
-<form [formGroup] = "infoAboutCalculation" (ngSubmit) = "onSubmit()">
-    <div class="form-calculation" >
+<p>form-calculatsdfionfdsf works!</p>
+<p>fsdf</p>
+<form >
+    <div class="form-calculation">
     <h2>Úvěrová kalkulačka</h2>
-    <input type="number" formControlName="amount" id="amount" placeholder="Výše úvěru" min="5000" max="1200000">
-    <input type="text" formControlName="" id="time" placeholder="Doba splácení">
-    <button type="submit" class="btn" [disabled]="btnDisabled" (click) = "addInfoAboutCalc()">Spočítat</button>
+    <input 
+    #amount
+    type="number" 
+    id="amount" 
+    placeholder="Výše úvěru" 
+    min="5000" 
+    max="1200000"
+    name="amount" 
+    step="1000"
+    (change)="changeOfAmount($event)"
+    /> Kč
+    
+    <input 
+    #numOfMonths
+    type="number" 
+    id="time" 
+    placeholder="Doba splácení"
+    min="6"
+    max="60"
+    (change) = "changeOfNumOfMonths($event)"
+    />
+    
+    měsíců
+    <button 
+    [disabled]="!btnActive" 
+    type="submit" 
+    class="btn" 
+    (click)= 'calculate(amount.value, numOfMonths.value)'>Mám zájem</button>
     </div>
 </form>
+
+<p>{{ amountInput }}</p>
+<p>{{ numOfMOnthsInput }}</p>
