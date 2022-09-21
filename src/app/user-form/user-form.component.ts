@@ -7,7 +7,27 @@ import { Component, OnInit } from '@angular/core';
 })
 export class UserFormComponent implements OnInit {
 
-  constructor() { }
+
+  @ViewChild('f') signUpForm: NgForm;
+
+  client = {
+    type: '',
+    name: '',
+    surname: '',
+    id: '',
+    nationality: '',
+    email: '',
+    phone: '',
+    street: '',
+    cp: '',
+    co: '',
+    city: '',
+    psc: ''
+  };
+
+  constructor() {
+  }
+
 
   ngOnInit(): void {
   }

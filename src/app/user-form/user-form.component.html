@@ -1,14 +1,100 @@
 <div class="container">
   <div class="row">
-    <div class="col-xs-12 col-md-8 col-sm-offset-1 col-md-offset-2">
-      <form>
-          <div class="user-data">
-            <div class="form-group">
-              <label for="name">Jmeno</label>
-              <input type="text" id="name" class="form-control">
-          </div>
-        </div>
-      </form>
-    </div>
+    <form (ngSubmit)="onSubmit()" #f="ngForm">
+      <input type="radio" name="osoba">
+      <br>
+      <p>
+      <label for="name">Jméno</label><br>
+      <input
+        type="text"
+        id="name"
+        ngModel name="name"
+        required>
+      </p>
+      <p>
+      <label for="surname">Příjmení</label><br>
+      <input
+        type="text"
+        id="surname"
+        ngModel name="surname"
+        required>
+      </p>
+      <p>
+      <label for="id">Rodné číslo</label><br>
+      <input
+        type="text"
+        id="id"
+        ngModel name="id"
+      required>
+      </p>
+      <p>
+      <label for="nationality">Státní příslušnost</label><br>
+      <input
+        type="text"
+        id="nationality"
+        ngModel name="nationality"
+      required>
+      </p>
+      <p>
+      <label for="email">Email</label><br>
+      <input
+        type="text"
+        id="email"
+        ngModel name="email"
+        required
+        email>
+      </p>
+      <p>
+      <label for="tel">Telefonní číslo</label><br>
+      <input
+        type="text"
+        id="tel"
+        ngModel me="phone"
+      required>
+      </p>
+      <h3>Vyplnte adresu</h3>
+
+      <p>
+      <label for="street">Ulice</label><br>
+      <input
+        type="text"
+        id="street"
+        ngModel name="street"
+      required>
+      </p>
+      <p>
+      <label for="cp">Číslo popisné</label><br>
+      <input
+        type="text"
+        id="cp"
+        ngModel name="cp"
+      required>
+      </p>
+<p>
+      <label for="co">Číslo orientační</label><br>
+      <input
+        type="text"
+        id="co"
+        ngModel name="co"
+      required>
+      </p>
+<p>
+      <label for="city">Obec</label><br>
+      <input
+        type="text"
+        id="city"
+        ngModel name="city"
+      required>
+      </p>
+      <p>
+      <label for="psc">PSČ</label><br>
+      <input
+        type="text"
+        id="psc"
+        ngModel name="psc"
+      required>
+      </p>
+      <button type="button" class="btn btn-success">REGISTROVAT SE</button>
+    </form>
   </div>
 </div>
