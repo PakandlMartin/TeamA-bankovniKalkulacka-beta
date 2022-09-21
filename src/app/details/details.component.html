@@ -1,0 +1,13 @@
+<div class="container">
+<div class="row" *ngIf="submitted">
+  <div class="col-xs-12">
+    <h2>Vas navrh</h2>
+    <p>Mesicni splatka: {{client.monthly}}</p>
+    <p>Rocni urokova sazba: {{client.interest}}</p>
+    <p>RPSN: {{client.rpsn}}</p>
+    <p>Celkova splatna castka: {{client.total}}</p>
+  </div>
+</div>
+
+  <button type="button" class="btn btn-success">Mam zajem</button>
+</div>
