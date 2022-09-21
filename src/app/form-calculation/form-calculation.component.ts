@@ -1,12 +1,14 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnChanges, DoCheck } from '@angular/core';
 import { HttpRequestsService } from '../http-requests.service';
+
+import { Subject } from 'rxjs';
 
 @Component({
   selector: 'app-form-calculation',
   templateUrl: './form-calculation.component.html',
   styleUrls: ['./form-calculation.component.css'],
 })
-export class FormCalculationComponent implements OnInit {
+export class FormCalculationComponent implements DoCheck {
 amountInput: number = 0;
 numOfMOnthsInput: number = 0;
 btnActive: boolean = false;
@@ -14,13 +16,29 @@ calculationInputs = {
   amount: 0,
   numOfMonths: 0
 }
-calculationOutput: object; 
 
+calculationOutput = {
+  monthlyPayment: 0, 
+  yearlyInterest: 0, 
+  RPSN: 0, 
+  overallAmount: 0, 
+  fixedFee: 0
+};
+
+requestCalc: any;
 
   constructor( 
     private httpRequestsService: HttpRequestsService ) {}
 
   ngOnInit(): void {
+  }
+  
+  ngDoCheck() {
+    this.requestCalc = this.httpRequestsService.calculationInfo
+    if (this.requestCalc.RPSN) {
+      console.log(this.requestCalc)
+      console.log(this.requestCalc.RPSN)
+    }
   }
 
   calculate(amountCalculate, numOfMonthsCalculate ) {
@@ -34,8 +52,7 @@ calculationOutput: object;
     this.amountInput = Number(amountChange.target.value);
     this.calculationInputs.amount = this.amountInput
     this.changeBtnActive();
-    console.log(this.httpRequestsService.postCalculationInfo((this.calculationInputs)));
-
+   this.httpRequestsService.postCalculationInfo((this.calculationInputs));
   }
 
   changeOfNumOfMonths(numChange) {
@@ -45,7 +62,6 @@ calculationOutput: object;
     this.httpRequestsService.postCalculationInfo(
       (this.calculationInputs)
       );
-
   }
 
   changeBtnActive() {
