@@ -14,6 +14,7 @@ calculationInputs = {
   amount: 0,
   numOfMonths: 0
 }
+calculationOutput: object; 
 
 
   constructor( 
@@ -22,28 +23,29 @@ calculationInputs = {
   ngOnInit(): void {
   }
 
-
   calculate(amountCalculate, numOfMonthsCalculate ) {
     this.calculationInputs.amount = amountCalculate;
     this.calculationInputs.numOfMonths = numOfMonthsCalculate
   }
+
+
   
   changeOfAmount(amountChange) {
     this.amountInput = Number(amountChange.target.value);
     this.calculationInputs.amount = this.amountInput
-    this.changeBtnActive()
-    this.httpRequestsService.sendCalculationInfo(
-      (this.calculationInputs)
-      );
+    this.changeBtnActive();
+    console.log(this.httpRequestsService.postCalculationInfo((this.calculationInputs)));
+
   }
 
   changeOfNumOfMonths(numChange) {
     this.numOfMOnthsInput = Number(numChange.target.value);
-    this.calculationInputs.numOfMonths = this.numOfMOnthsInput
-    this.changeBtnActive()
-    this.httpRequestsService.sendCalculationInfo(
+    this.calculationInputs.numOfMonths = this.numOfMOnthsInput;
+    this.changeBtnActive();
+    this.httpRequestsService.postCalculationInfo(
       (this.calculationInputs)
       );
+
   }
 
   changeBtnActive() {

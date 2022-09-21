@@ -1,19 +1,37 @@
-import { Injectable } from '@angular/core';
+import { Injectable } from "@angular/core";
+import { HttpClient } from "@angular/common/http";
 
-@Injectable({
-  providedIn: 'root'
-})
+import { Subject, } from "rxjs";
+
+@Injectable({providedIn: 'root'})
 
 export class HttpRequestsService {
 
-  sendCalculationInfo(calculationInputsInfo:any) {
+  error = new Subject;
+  calculationInfo: object = {};
+
+  constructor(private http:HttpClient) {}
+
+  postCalculationInfo(calculationInputsInfo:any) {
+    const httpPostBody = calculationInputsInfo;
+    this.http
+    .post<{name: string}>(
+      'http://localhost:8000/request/calculate ', 
+      httpPostBody, {
+        observe: 'response'
+      }
+      )
+      .subscribe(responseData => {
+        this.calculationInfo = responseData.body
+        return responseData.body
+      }, error => {
+        this.error.next(error.message);
+      });
+    }
 
 
-    console.log(
-      calculationInputsInfo
-    )
+
   }
-
-}
+  
 
 
