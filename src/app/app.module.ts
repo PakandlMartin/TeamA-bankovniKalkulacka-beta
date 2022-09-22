@@ -3,7 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { HttpClientModule } from '@angular/common/http';
 
-import { FormsModule } from '@angular/forms'; 
+import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
 
 
@@ -13,6 +13,8 @@ import { FormDetailsComponent } from './form-details/form-details.component';
 import { FormContactComponent } from './form-contact/form-contact.component';
 import { FormCalculationComponent } from './form-calculation/form-calculation.component';
 import { HttpRequestsService } from './http-requests.service';
+import {DetailsComponent} from "./details/details.component";
+import {UserFormComponent} from "./user-form/user-form.component";
 
 
 @NgModule({
@@ -23,6 +25,8 @@ import { HttpRequestsService } from './http-requests.service';
     FormDetailsComponent,
     FormContactComponent,
     FormCalculationComponent,
+    DetailsComponent,
+    UserFormComponent,
   ],
   imports: [
     FormsModule,

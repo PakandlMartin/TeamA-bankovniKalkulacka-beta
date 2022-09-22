@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit, ViewChild} from '@angular/core';
+import {NgForm} from "@angular/forms";
 
 @Component({
   selector: 'app-user-form',
@@ -6,7 +7,6 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./user-form.component.css']
 })
 export class UserFormComponent implements OnInit {
-
 
   @ViewChild('f') signUpForm: NgForm;
 
@@ -30,6 +30,25 @@ export class UserFormComponent implements OnInit {
 
 
   ngOnInit(): void {
+  }
+
+  onSubmit() {
+
+    this.client.type = this.signUpForm.value.type;
+    this.client.name = this.signUpForm.value.name;
+    this.client.surname = this.signUpForm.value.surname;
+    this.client.id = this.signUpForm.value.id;
+    this.client.nationality = this.signUpForm.value.nationality;
+    this.client.email = this.signUpForm.value.email;
+    this.client.phone = this.signUpForm.value.phone;
+    this.client.street = this.signUpForm.value.street;
+    this.client.co = this.signUpForm.value.co;
+    this.client.cp = this.signUpForm.value.cp;
+    this.client.city = this.signUpForm.value.city;
+    this.client.psc = this.signUpForm.value.psc;
+
+    console.log(this.client);
+    this.signUpForm.reset();
   }
 
 }

@@ -1,5 +1,5 @@
 
-import { Component } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import { NgModule } from '@angular/core';
 
 
@@ -10,7 +10,7 @@ import { NgModule } from '@angular/core';
   styleUrls: ['./app.component.css'],
 
 })
-export class AppComponent implements OnInit{
+export class AppComponent implements OnInit {
   clients: { name: string, id: number, nationality: string, email: string,
     phone: string, street: string, streetNo: string, city: string, psc: string} [] = [];
 
