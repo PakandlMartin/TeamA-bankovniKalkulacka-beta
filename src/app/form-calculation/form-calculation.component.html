@@ -15,6 +15,7 @@
           name="amount"
           step="1000"
           (change)="changeOfAmount($event)"
+          [(ngModel)] = "amountOfMoney"
         />
         <span>Kč</span>
       </div>
@@ -29,11 +30,18 @@
           min="6"
           max="60"
           (change)="changeOfNumOfMonths($event)"
+        
         />
         <span>měsíců</span>
 
       </div>
 
+    </div>
+
+    <div class="flex" *ngIf="!calculationInputs.amount || !calculationInputs.numOfMonths">
+      <p>
+        Pro výpočet zadejte oba údaje. Děkujeme.
+      </p>
     </div>
 
     <div class="flex rangeInput">
@@ -46,7 +54,7 @@
       max="1200000" 
       value="50000" 
       step="1000"
-      (change)="changeAmountRange($event,amount.value)"
+      (change)="changeAmountRange($event)"
       >
     </div>
 
@@ -70,7 +78,7 @@
       <p>
         {{
           this.requestCalc.fixedFee
-            ? "Fixní poplatek činí: " + this.requestCalc.fixedFee + " Kč"
+            ? "Fixní poplatek: " + this.requestCalc.fixedFee + " Kč"
             : "Bez fixního poplatku!"
         }}
       </p>

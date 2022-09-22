@@ -24,7 +24,7 @@ export class HttpRequestsService {
       )
       .subscribe(responseData => {
         this.calculationInfo = responseData.body
-        return responseData.body
+        // return responseData.body
       }, error => {
         this.error.next(error.message);
       });
