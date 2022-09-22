@@ -1,30 +1,37 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import {FormsModule} from "@angular/forms";
+
+import { HttpClientModule } from '@angular/common/http';
+
+import { FormsModule } from '@angular/forms'; 
+import { ReactiveFormsModule } from '@angular/forms';
+
 
 import { AppComponent } from './app.component';
-user-form
-import { UserFormComponent } from './user-form/user-form.component';
+import { HeaderComponent } from './header/header.component';
+import { FormDetailsComponent } from './form-details/form-details.component';
+import { FormContactComponent } from './form-contact/form-contact.component';
+import { FormCalculationComponent } from './form-calculation/form-calculation.component';
+import { HttpRequestsService } from './http-requests.service';
 
-import {HeaderComponent} from "./header/header.component";
-import {DetailsComponent} from "./details/details.component";
-main
 
 @NgModule({
   declarations: [
     AppComponent,
-user-form
-    UserFormComponent
 
     HeaderComponent,
-    DetailsComponent
-
+    FormDetailsComponent,
+    FormContactComponent,
+    FormCalculationComponent,
   ],
   imports: [
+    FormsModule,
+    ReactiveFormsModule,
     BrowserModule,
-    FormsModule
+    HttpClientModule
+
   ],
-  providers: [],
+  providers: [HttpRequestsService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,4 +1,8 @@
-import {Component, OnInit} from '@angular/core';
+
+import { Component } from '@angular/core';
+import { NgModule } from '@angular/core';
+
+
 
 @Component({
   selector: 'app-root',
