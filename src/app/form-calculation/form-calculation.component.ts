@@ -2,6 +2,7 @@ import { Component, OnInit, OnChanges, DoCheck } from '@angular/core';
 import { HttpRequestsService } from '../http-requests.service';
 
 import { Subject } from 'rxjs';
+import { UserInfoService } from '../user-info.service';
 
 @Component({
   selector: 'app-form-calculation',
@@ -28,7 +29,9 @@ calculationOutput = {
 requestCalc: any;
 
   constructor( 
-    private httpRequestsService: HttpRequestsService ) {}
+    private httpRequestsService: HttpRequestsService,
+    private userInfoService: UserInfoService
+    ) {}
 
   ngOnInit(): void {
   }
@@ -44,6 +47,13 @@ requestCalc: any;
   calculate(amountCalculate, numOfMonthsCalculate ) {
     this.calculationInputs.amount = amountCalculate;
     this.calculationInputs.numOfMonths = numOfMonthsCalculate
+    if (this.calculationInputs) {
+      this.userInfoService.calculationInformation.amount =  amountCalculate;
+      this.userInfoService.calculationInformation.numOfMonths = numOfMonthsCalculate;
+    }
+
+    console.log(this.userInfoService)
+
   }
   
   changeOfAmount(amountChange) {
