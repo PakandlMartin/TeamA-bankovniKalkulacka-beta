@@ -1,0 +1,38 @@
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+nav {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  min-height: 10%;
+  background-color: #00843d;
+}
+
+.logo {
+  color: white;
+  text-transform: uppercase;
+  letter-spacing: 5px;
+  font-size: 20px;
+  font-weight: bold;
+  font-family: Koop, Arial, serif;
+}
+
+.nav-links {
+  display: flex;
+  justify-content: space-around;
+  width: 30%;
+  font-weight: bold;
+}
+.nav-links a{
+  color: white;
+  text-decoration: none;
+  letter-spacing: 2px;
+}
+.nav-links li{
+  list-style: none;
+}
+

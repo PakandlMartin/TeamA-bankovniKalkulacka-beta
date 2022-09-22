@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+
 import { HttpClientModule } from '@angular/common/http';
 
 import { FormsModule } from '@angular/forms'; 
@@ -17,6 +18,7 @@ import { HttpRequestsService } from './http-requests.service';
 @NgModule({
   declarations: [
     AppComponent,
+
     HeaderComponent,
     FormDetailsComponent,
     FormContactComponent,
@@ -27,6 +29,7 @@ import { HttpRequestsService } from './http-requests.service';
     ReactiveFormsModule,
     BrowserModule,
     HttpClientModule
+
   ],
   providers: [HttpRequestsService],
   bootstrap: [AppComponent]
