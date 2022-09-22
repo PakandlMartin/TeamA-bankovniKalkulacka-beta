@@ -10,15 +10,15 @@ import { FormContactComponent } from './form-contact/form-contact.component';
 import { FormCalculationComponent } from './form-calculation/form-calculation.component';
 import { HttpRequestsService } from './http-requests.service';
 import {DetailsComponent} from "./details/details.component";
-import {UserFormComponent} from "./user-form/user-form.component";
 import {RouterModule, Routes} from "@angular/router";
+
 // import { AuthComponent } from './auth/auth.component';
 // import { AuthEmployeeComponent } from './auth/auth-employee/auth-employee.component';
 
 const appRoutes: Routes = [
   { path: '', component: FormCalculationComponent },
   { path: 'calculator', component: FormCalculationComponent },
-  { path: 'client', component: UserFormComponent },
+  // { path: 'client', component: UserFormComponent },
   // { path: 'login', component: AuthComponent },
   // { path: 'employee', component: AuthEmployeeComponent },
   ];
@@ -32,7 +32,7 @@ const appRoutes: Routes = [
     FormContactComponent,
     FormCalculationComponent,
     DetailsComponent,
-    UserFormComponent,
+    // UserFormComponent,
     // AuthComponent,
     // AuthEmployeeComponent,
   ],

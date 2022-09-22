@@ -2,6 +2,7 @@ import { Component, OnInit, OnChanges, DoCheck } from '@angular/core';
 import { HttpRequestsService } from '../http-requests.service';
 
 
+
 import { UserInfoService } from '../user-info.service';
 
 @Component({
@@ -61,6 +62,15 @@ requestCalc: any;
     this.calculationInputs.amount = this.amountInput
     this.changeBtnActive();
    this.httpRequestsService.postCalculationInfo((this.calculationInputs));
+  }
+
+  changeAmountRange(amountChangeRange, amountChange) {
+    this.amountInput = Number(amountChangeRange.target.value);
+    this.calculationInputs.amount = this.amountInput
+    this.changeBtnActive();
+   this.httpRequestsService.postCalculationInfo((this.calculationInputs));
+   amountChange = amountChangeRange.target.value
+  console.log(amountChange)
   }
 
   changeOfNumOfMonths(numChange) {

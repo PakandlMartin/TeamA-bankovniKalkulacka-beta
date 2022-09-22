@@ -21,6 +21,7 @@
 
       <div class="changeOfNumOfMonthsInput">
         <input
+        lang="cs"
           #numOfMonths
           type="number"
           id="time"
@@ -30,12 +31,29 @@
           (change)="changeOfNumOfMonths($event)"
         />
         <span>měsíců</span>
+
       </div>
+
     </div>
+
+    <div class="flex rangeInput">
+      <input 
+      #amountRange
+      type="range" 
+      id="amountRange" 
+      name="amountRange" 
+      min="5000" 
+      max="1200000" 
+      value="50000" 
+      step="1000"
+      (change)="changeAmountRange($event,amount.value)"
+      >
+    </div>
+
     <div class="formDisplay" *ngIf="btnActive">
       <h2>Naše výhodná půjčka na vás čeká!</h2>
       <p>
-        Výše úvěru: <span class="bold"> {{ amountInput }} Kč </span>
+        Výše úvěru: <span class="bold"> {{ amountInput | currency:'':'' }} Kč </span>
       </p>
       <p>
         Doba splácení:
@@ -44,15 +62,15 @@
       <hr />
       <p>
         Měsíční splátka:
-        <span class="bold"> {{ this.requestCalc.monthlyPayment }} Kč </span>
+        <span class="bold"> {{ this.requestCalc.monthlyPayment | currency:'':'' }} Kč </span>
       </p>
-      <p>Celková částka: {{ this.requestCalc.overallAmount }} Kč</p>
-      <p>Roční úroková sazba: {{ this.requestCalc.yearlyInterest }} %</p>
-      <p>RPSN: {{ this.requestCalc.RPSN }}%</p>
+      <p>Celková částka: {{ this.requestCalc.overallAmount | currency:'':'' }} Kč</p>
+      <p>Roční úroková sazba: {{ this.requestCalc.yearlyInterest | number:'.1' }} %</p>
+      <p>RPSN: {{ this.requestCalc.RPSN | number:'.1'}} %</p>
       <p>
         {{
           this.requestCalc.fixedFee
-            ? "Fixní poplatek činí: " + this.requestCalc.fixedFee + "Kč"
+            ? "Fixní poplatek činí: " + this.requestCalc.fixedFee + " Kč"
             : "Bez fixního poplatku!"
         }}
       </p>
