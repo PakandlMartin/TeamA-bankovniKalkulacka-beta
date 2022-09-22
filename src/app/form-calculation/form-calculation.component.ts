@@ -35,7 +35,7 @@ requestCalc: any;
   
   ngDoCheck() {
     this.requestCalc = this.httpRequestsService.calculationInfo
-    if (this.requestCalc.RPSN) {
+    if (this.requestCalc) {
       console.log(this.requestCalc)
       console.log(this.requestCalc.RPSN)
     }
@@ -45,8 +45,6 @@ requestCalc: any;
     this.calculationInputs.amount = amountCalculate;
     this.calculationInputs.numOfMonths = numOfMonthsCalculate
   }
-
-
   
   changeOfAmount(amountChange) {
     this.amountInput = Number(amountChange.target.value);
