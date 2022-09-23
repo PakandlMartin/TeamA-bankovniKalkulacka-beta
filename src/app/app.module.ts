@@ -26,7 +26,7 @@ const appRoutes: Routes = [
   { path: 'form', component: FormContactComponent },
   { path: 'detail', component: EmployeeComponent },
   { path: 'employee/detail', component: EmployeeComponent, children: [
-      {path: '', component: EmployeeComponent},
+     // {path: '', component: EmployeeComponent},
       {path: ':id', component: EmployeeDetailComponent}
     ] }
 ];

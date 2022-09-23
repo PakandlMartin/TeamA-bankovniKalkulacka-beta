@@ -3,15 +3,20 @@ h1 {
   margin-left: 20px;
 }
 
+.top-container {
+
+}
+
 .overview {
   background-color: white;
   color: #00843d;
-  width: 25%;
-  margin-top: 50px;
-  margin-left: 20px;
+  width: 20%;
   border: 1px solid #00843d;
-  padding-left: 20px;
-  float: left;
+  font-size: 10px;
+  margin: 5px 30px 10px 75px;
+  padding-left: 10px;
+  padding-top: 10px;
+
 
 }
 
@@ -20,12 +25,18 @@ a {
   color: #00843d;
 }
 
-.client-detail {
-  width: 60%;
-  float: left;
-  margin-top: 50px;
-  margin-left: 50px;
+button {
+  background: white;
+  color: #00843d;
+  border: 1px solid #00843d;
+  align-items: center;
+  line-height: 1.45em;
+  cursor: pointer;
+  padding: 0.75rem 1.25rem;
+  font-weight: bold;
+  margin: 30px 30px 10px 75px;
 
 }
+
 
 
