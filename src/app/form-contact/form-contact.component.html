@@ -6,24 +6,24 @@
       <form (ngSubmit)="onSubmit()" #f="ngForm">
         <div>
           <select
-            id="type"
+            id="applicantType"
             [(ngModel)]="selectedType"
-            name="type">
-            <option value="naturalPerson">Fyzická Osoba</option>
-            <option value="entrepreneur">Podnikatel</option>
-            <option value="legalEntity">Právnická Osoba</option>
+            name="applicantType">
+            <option value="INDIVIDUAL">Fyzická Osoba</option>
+            <option value="OSVC">Podnikatel</option>
+            <option value="LEGAL_ENTITY">Právnická Osoba</option>
           </select>
         </div>
         <br>
-        <p *ngIf="selectedType ==='legalEntity'">
-          <label for="name">Jméno</label><br>
+        <p *ngIf="selectedType ==='LEGAL_ENTITY'">
+          <label for="name">Název firmy</label><br>
           <input
             type="text"
             id="companyName"
-            ngModel name="name"
+            ngModel name="companyName"
             required>
         </p>
-        <p *ngIf="selectedType ==='naturalPerson'||selectedType ==='entrepreneur'">
+        <p *ngIf="selectedType ==='INDIVIDUAL'||selectedType ==='OSVC'">
           <label for="name">Jméno</label><br>
           <input
             type="text"
@@ -31,7 +31,7 @@
             ngModel name="name"
             required>
         </p>
-        <p *ngIf="selectedType ==='naturalPerson'||selectedType ==='entrepreneur'">
+        <p *ngIf="selectedType ==='INDIVIDUAL'||selectedType ==='OSVC'">
           <label for="surname">Příjmení</label><br>
           <input
             type="text"
@@ -39,7 +39,7 @@
             ngModel name="surname"
             required>
         </p>
-        <p *ngIf="selectedType ==='naturalPerson'">
+        <p *ngIf="selectedType ==='INDIVIDUAL'">
           <label for="id">Rodné číslo</label><br>
           <input
             type="text"
@@ -47,7 +47,7 @@
             ngModel name="id"
             required>
         </p>
-        <p *ngIf="selectedType === 'entrepreneur' ||selectedType ==='legalEntity'">
+        <p *ngIf="selectedType === 'OSVC' ||selectedType ==='LEGAL_ENTITY'">
           <label for="in">IČO</label><br>
           <input
             type="text"
@@ -55,7 +55,7 @@
             ngModel name="in"
             required>
         </p>
-        <p *ngIf="selectedType ==='naturalPerson'">
+        <p *ngIf="selectedType ==='INDIVIDUAL'">
           <label for="nationality">Státní příslušnost</label><br>
           <input
             type="text"
@@ -63,7 +63,7 @@
             ngModel name="nationality"
             required>
         </p>
-        <p *ngIf="selectedType === 'entrepreneur' || selectedType ==='naturalPerson' || selectedType ==='legalEntity'">
+        <p *ngIf="selectedType === 'OSVC' || selectedType ==='INDIVIDUAL' || selectedType ==='LEGAL_ENTITY'">
           <label for="email">Email</label><br>
           <input
             type="text"
@@ -72,7 +72,7 @@
             required
             email>
         </p>
-        <p  *ngIf="selectedType === 'entrepreneur' || selectedType ==='naturalPerson' || selectedType ==='legalEntity'">
+        <p  *ngIf="selectedType === 'OSVC' || selectedType ==='INDIVIDUAL' || selectedType ==='LEGAL_ENTITY'">
           <label for="tel">Telefonní číslo</label><br>
           <input
             type="text"
@@ -80,9 +80,9 @@
             ngModel name="phone"
             required>
         </p>
-        <h3  *ngIf="selectedType === 'entrepreneur' || selectedType ==='naturalPerson'">Vyplnte adresu</h3>
-        <h3  *ngIf="selectedType === 'legalEntity'">Vyplnte adresu jednajicí osoba</h3>
-        <p *ngIf="selectedType ==='legalEntity'">
+        <h3  *ngIf="selectedType === 'entrepreneur' || selectedType ==='INDIVIDUAL'">Vyplnte adresu</h3>
+        <h3  *ngIf="selectedType === 'LEGAL_ENTITY'">Vyplnte adresu jednajicí osoba</h3>
+        <p *ngIf="selectedType ==='LEGAL_ENTITY'">
           <label for="responsiblePerson">Jednající Osoba</label><br>
           <input
             type="text"
@@ -90,7 +90,7 @@
             ngModel name="responsiblePerson"
             required>
         </p>
-        <p *ngIf="selectedType ==='legalEntity'">
+        <p *ngIf="selectedType ==='LEGAL_ENTITY'">
           <label for="job">Funkce</label><br>
           <input
             type="text"

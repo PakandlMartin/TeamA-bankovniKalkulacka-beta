@@ -33,44 +33,52 @@ export class FormContactComponent implements OnInit {
 
   idCreated = false;
 
-  selectedType = 'naturalPerson';
+  selectedType = 'INDIVIDUAL';
 
 
   @ViewChild('f') signUpForm: NgForm;
 
   client = {
-    type: '',
+    applicantType: '',
     name: '',
     surname: '',
-    id: '',
-    in: '',
+    birthNum: '',
     nationality: '',
     email: '',
     phone: '',
-    street: '',
-    cp: '',
-    co: '',
-    city: '',
-    psc: '',
-    responsiblePerson: '',
-    job: ''
+    IC: '',
+    position: '',
+    companyName: '',
+    amount: '',
+    numOfMonths: '',
+    address: {
+      street: '',
+      descNumber: '',
+      indicativeNumber: '',
+      city: '',
+      postalCode: ''
+    }
   };
 
   onSubmit() {
 
-    this.client.type = this.signUpForm.value.type;
-    this.client.name = this.signUpForm.value.name;
-    this.client.surname = this.signUpForm.value.surname;
-    this.client.id = this.signUpForm.value.id;
-    this.client.in = this.signUpForm.value.id;
-    this.client.nationality = this.signUpForm.value.nationality;
-    this.client.email = this.signUpForm.value.email;
-    this.client.phone = this.signUpForm.value.phone;
-    this.client.street = this.signUpForm.value.street;
-    this.client.co = this.signUpForm.value.co;
-    this.client.cp = this.signUpForm.value.cp;
-    this.client.city = this.signUpForm.value.city;
-    this.client.psc = this.signUpForm.value.psc;
+    this.client.applicantType = this.signUpForm.value.type;
+    this.client.name;
+    this.client.surname;
+    this.client.birthNum;
+    this.client.nationality;
+    this.client.email;
+    this.client.phone;
+    this.client.IC;
+    this.client.position;
+    this.client.amount;
+    this.client.numOfMonths;
+    this.client.address.street;
+    this.client.address.descNumber;
+    this.client.address.indicativeNumber;
+    this.client.address.city;
+    this.client.address.postalCode;
+ 
 
     console.log(this.client);
     this.signUpForm.reset();
@@ -79,3 +87,20 @@ export class FormContactComponent implements OnInit {
 }
 
 
+ // client = {
+  //   applicantType: '',
+  //   name: '',
+  //   surname: '',
+  //   id: '',
+  //   in: '',
+  //   nationality: '',
+  //   email: '',
+  //   phone: '',
+  //   street: '',
+  //   cp: '',
+  //   co: '',
+  //   city: '',
+  //   psc: '',
+  //   responsiblePerson: '',
+  //   job: ''
+  // };
