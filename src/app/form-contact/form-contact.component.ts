@@ -1,21 +1,42 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, DoCheck, OnInit } from '@angular/core';
 import { HttpRequestsService } from '../http-requests.service';
 import { UserInfoService } from '../user-info.service';
 import {ViewChild} from "@angular/core";
 import {NgForm} from '@angular/forms';
+
 
 @Component({
   selector: 'app-form-contact',
   templateUrl: './form-contact.component.html',
   styleUrls: ['./form-contact.component.css']
 })
-export class FormContactComponent implements OnInit {
+export class FormContactComponent implements DoCheck {
 
-  userForm = {
-    applicantType: "INDIVIDUAL",
-    name: "Tomáš",
-    surname: "Novák",
-    email:"TomasNovak@seznam.cz"
+  // userForm = {
+  //   applicantType: "INDIVIDUAL",
+  //   name: "Tomáš",
+  //   surname: "Novák",
+  //   birthNum: "2056",
+  //   email:"TomasNovak@seznam.cz",
+  //   phone: undefined,
+  //   IC: "262",
+  //   address: {
+  //   street: undefined,
+  //   descNumber: undefined,
+  //   indicativeNumber: undefined,
+  //   city: undefined,
+  //   postalCode: undefined
+  // }
+  // }
+
+
+
+
+
+
+  ngDoCheck(): void {
+this.client.amount = String(this.userInfoService.calculationInformation.amount)
+this.client.numOfMonths = String(this.userInfoService.calculationInformation.numOfMonths)
   }
 
   constructor(private httpRequestsService: HttpRequestsService,
@@ -26,10 +47,10 @@ export class FormContactComponent implements OnInit {
    
   }
 
-  onClick() {
-    console.log(this.userInfoService.calculationInformation);
-    this.httpRequestsService.postInfoAboutUser(this.userForm)
-  }
+  // onClick() {
+  //   console.log(this.userInfoService.calculationInformation);
+  //   this.httpRequestsService.postInfoAboutUser(this.userForm)
+  // }
 
   idCreated = false;
 
@@ -39,68 +60,58 @@ export class FormContactComponent implements OnInit {
   @ViewChild('f') signUpForm: NgForm;
 
   client = {
-    applicantType: '',
-    name: '',
-    surname: '',
-    birthNum: '',
-    nationality: '',
-    email: '',
-    phone: '',
-    IC: '',
-    position: '',
-    companyName: '',
-    amount: '',
-    numOfMonths: '',
+    applicantType: undefined,
+    name: undefined,
+    surname: undefined,
+    birthNum: undefined,
+    nationality: undefined,
+    email: undefined,
+    phone: undefined,
+    IC: undefined,
+    position: undefined,
+    companyName: undefined,
+    amount: undefined,
+    numOfMonths: undefined,
     address: {
-      street: '',
-      descNumber: '',
-      indicativeNumber: '',
-      city: '',
-      postalCode: ''
+      street: undefined,
+      descNumber: undefined,
+      indicativeNumber: undefined,
+      city: undefined,
+      postalCode: undefined
     }
   };
 
   onSubmit() {
-
-    this.client.applicantType = this.signUpForm.value.type;
-    this.client.name;
-    this.client.surname;
-    this.client.birthNum;
-    this.client.nationality;
-    this.client.email;
-    this.client.phone;
-    this.client.IC;
-    this.client.position;
-    this.client.amount;
-    this.client.numOfMonths;
-    this.client.address.street;
-    this.client.address.descNumber;
-    this.client.address.indicativeNumber;
-    this.client.address.city;
-    this.client.address.postalCode;
+    this.client.applicantType = this.signUpForm.value.applicantType;
+    this.client.name = this.signUpForm.value.name;
+    this.client.companyName = this.signUpForm.value.companyName
+    this.client.surname =this.signUpForm.value.surname ;
+    this.client.birthNum = this.signUpForm.value.birthNum;
+    this.client.nationality = this.signUpForm.value.nationality;
+    this.client.email = this.signUpForm.value.email;
+    this.client.phone = this.signUpForm.value.phone;
+    this.client.IC = this.signUpForm.value.IC;
+    this.client.position = this.signUpForm.value.position;
+    this.client.amount = this.signUpForm.value.amount;
+    this.client.numOfMonths = this.signUpForm.value.numOfMonths;
+    this.client.address.street = this.signUpForm.value.street;
+    this.client.address.descNumber = Number(this.signUpForm.value.descNumber);
+    this.client.address.indicativeNumber = Number(this.signUpForm.value.indicativeNumber);
+    this.client.address.city = this.signUpForm.value.city;
+    this.client.address.postalCode = Number(this.signUpForm.value.postalCode);
  
 
     console.log(this.client);
+    
+    this.httpRequestsService.postInfoAboutUser(this.client)
+
+
     this.signUpForm.reset();
   }
 
 }
 
 
- // client = {
-  //   applicantType: '',
-  //   name: '',
-  //   surname: '',
-  //   id: '',
-  //   in: '',
-  //   nationality: '',
-  //   email: '',
-  //   phone: '',
-  //   street: '',
-  //   cp: '',
-  //   co: '',
-  //   city: '',
-  //   psc: '',
-  //   responsiblePerson: '',
-  //   job: ''
-  // };
+
+
+
