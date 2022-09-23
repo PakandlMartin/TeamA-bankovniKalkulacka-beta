@@ -1,0 +1,13 @@
+
+<p>Employee access to all clients</p>
+
+<div class="overview">
+
+
+    *ngFor="let client of clients; let i = index"
+    [recipe]="recipeEl"
+    [index]="i">
+
+  <p>{{client.name}} {{client.surname}}</p>
+
+</div>

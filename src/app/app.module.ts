@@ -12,16 +12,20 @@ import { HttpRequestsService } from './http-requests.service';
 import {DetailsComponent} from "./details/details.component";
 import {RouterModule, Routes} from "@angular/router";
 
-// import { AuthComponent } from './auth/auth.component';
-// import { AuthEmployeeComponent } from './auth/auth-employee/auth-employee.component';
+ import { AuthComponent } from './auth/auth.component';
+ import { AuthEmployeeComponent } from './auth/auth-employee/auth-employee.component';
+import {EmployeeComponent} from "./employee/employee.component";
+import {EmployeeDetailComponent} from "./employee/employee-detail/employee-detail.component";
 
 const appRoutes: Routes = [
   { path: '', component: FormCalculationComponent },
   { path: 'calculator', component: FormCalculationComponent },
-  // { path: 'client', component: UserFormComponent },
-  // { path: 'login', component: AuthComponent },
-  // { path: 'employee', component: AuthEmployeeComponent },
-  ];
+  { path: 'client', component: FormContactComponent},
+  { path: 'login', component: AuthComponent },
+  { path: 'employee', component: AuthEmployeeComponent },
+  { path: 'form', component: FormContactComponent },
+  { path: 'detail', component: EmployeeComponent }
+];
 
 
 @NgModule({
@@ -32,9 +36,12 @@ const appRoutes: Routes = [
     FormContactComponent,
     FormCalculationComponent,
     DetailsComponent,
-    // UserFormComponent,
-    // AuthComponent,
-    // AuthEmployeeComponent,
+    FormContactComponent,
+    AuthComponent,
+    AuthEmployeeComponent,
+    EmployeeComponent,
+    DetailsComponent,
+    EmployeeDetailComponent
   ],
   imports: [
     FormsModule,
