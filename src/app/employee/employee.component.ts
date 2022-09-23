@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {HttpRequestsService} from "../http-requests.service";
 
 
 @Component({
@@ -7,12 +8,28 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./employee.component.css']
 })
 export class EmployeeComponent implements OnInit {
+    data: [
+      {position: string, amount: number, numOfMonths: number, created: string,
+    status: string, id: string, name: string, surname: string,
+      companyName: string, applicantType: string}
+    ];
 
-  client = {type: 'privatePerson', name: 'Petr', surname: 'Novák'}
+
+  constructor (private httpRequestService: HttpRequestsService) {
+
+  }
 
 
   ngOnInit(): void {
   }
+
+  displayRequests() {
+     this.httpRequestService.showClients().subscribe(responseData => {
+       this.data = responseData;
+     });
+
+  }
+
 
 
 }

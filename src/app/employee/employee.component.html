@@ -1,13 +1,23 @@
+<router-outlet></router-outlet>
 
-<p>Employee access to all clients</p>
-
-<div class="overview">
-
-
-    *ngFor="let client of clients; let i = index"
-    [recipe]="recipeEl"
-    [index]="i">
-
-  <p>{{client.name}} {{client.surname}}</p>
-
+<div class="top-container">
+<button type="submit" (click)="displayRequests()">Zobraz žádosti</button>
 </div>
+
+<div class="overview" *ngFor="let item of data, let i = index">
+  <a [routerLink]="[i]"
+     class="list-group-item clearfix" *ngIf="!!data">
+    <strong>{{item.name}} {{item.surname}}</strong>
+    <p>{{item.amount | currency : 'CZK '}}</p>
+    <p>{{item.created | date : 'shortDate' }}</p>
+
+    <div class="pull-left">
+      <h4 class="list-group-item-heading"> </h4>
+    </div>
+  </a>
+</div>
+
+
+
+
+

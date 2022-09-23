@@ -23,6 +23,16 @@ export class AuthEmployeeComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  autoLogin() {
+    const userData = JSON.parse(localStorage.getItem('userData'));
+    if (!userData){
+      return;
+    } else {
+
+    }
+
+  }
+
   onSubmit(form: NgForm) {
     this.employee.login = this.signUpForm.value.login;
     this.employee.password = this.signUpForm.value.password;
@@ -33,8 +43,9 @@ export class AuthEmployeeComponent implements OnInit {
       console.log(resData);
       this.router.navigate(['detail'], {relativeTo: this.route});
       this.isLoggedIn = true;
+      localStorage.setItem('employeeData',JSON.stringify(resData));
+      this.autoLogin();
     })
-
   };
 
 }
