@@ -1,0 +1,15 @@
+h1 {
+  color: #00843d;
+  margin-left: 20px;
+}
+
+.overview {
+ background-color: white;
+  color: #00843d;
+  width: 25%;
+  margin-left: 20px;
+  border: 1px solid #00843d;
+  padding-left: 20px;
+}
+
+

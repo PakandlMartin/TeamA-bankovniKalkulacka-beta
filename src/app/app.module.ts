@@ -16,6 +16,7 @@ import {RouterModule, Routes} from "@angular/router";
  import { AuthEmployeeComponent } from './auth/auth-employee/auth-employee.component';
 import {EmployeeComponent} from "./employee/employee.component";
 import {EmployeeDetailComponent} from "./employee/employee-detail/employee-detail.component";
+import { EmployeeListComponent } from './employee/employee-list/employee-list.component';
 
 const appRoutes: Routes = [
   { path: '', component: FormCalculationComponent },
@@ -41,7 +42,8 @@ const appRoutes: Routes = [
     AuthEmployeeComponent,
     EmployeeComponent,
     DetailsComponent,
-    EmployeeDetailComponent
+    EmployeeDetailComponent,
+    EmployeeListComponent
   ],
   imports: [
     FormsModule,
