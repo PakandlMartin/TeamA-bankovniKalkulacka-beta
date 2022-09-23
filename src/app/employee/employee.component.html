@@ -1,13 +1,17 @@
 
-<p>Employee access to all clients</p>
+<button type="submit" (click)="displayRequests()">Zobraz žádosti</button>
 
 <div class="overview">
+  <a href="#"
+     class="list-group-item clearfix">
 
+    <div class="pull-left">
+      <h4 class="list-group-item-heading"> </h4>
+    </div>
+  </a>
+</div>
 
-    *ngFor="let client of clients; let i = index"
-    [recipe]="recipeEl"
-    [index]="i">
-
-  <p>{{client.name}} {{client.surname}}</p>
+<div class="client-detail">
 
 </div>
+
