@@ -62,7 +62,8 @@ export class HttpRequestsService {
       httpPostBody, {
         observe: 'response'
       }
-    ).subscribe(responseData => {
+    )
+    .subscribe(responseData => {
 console.log(responseData.body)
     }), error => {
       this.error.next(error.message)

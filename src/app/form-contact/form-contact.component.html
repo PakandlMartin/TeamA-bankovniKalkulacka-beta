@@ -99,7 +99,7 @@
       <div *ngIf="selectedType === 'INDIVIDUAL'">
         <label for="IC">Rodné číslo</label><br />
         <input
-          type="number"
+          type="string"
           id="birthNum"
           ngModel
           name="birthNum"
@@ -437,9 +437,10 @@
       </div>
     </div>
 
-      <button type="submit" class="" [disabled]="!f.valid">
+      <button type="submit" class="" >
         ODESLAT
       </button>
+      <!-- [disabled]="!f.valid" -->
     </div>
     </div>
     </form>

@@ -3,6 +3,7 @@ import { HttpRequestsService } from '../http-requests.service';
 import { UserInfoService } from '../user-info.service';
 import {ViewChild} from "@angular/core";
 import {NgForm} from '@angular/forms';
+import {ActivatedRoute, Router} from "@angular/router";
 
 
 @Component({
@@ -18,7 +19,7 @@ this.client.numOfMonths = String(this.userInfoService.calculationInformation.num
   }
 
   constructor(private httpRequestsService: HttpRequestsService,
-    private userInfoService: UserInfoService
+    private userInfoService: UserInfoService,private router: Router, private route: ActivatedRoute
     ) { }
 
   ngOnInit(): void {
@@ -77,9 +78,12 @@ this.client.numOfMonths = String(this.userInfoService.calculationInformation.num
 
     console.log(this.client);
     
-    this.httpRequestsService.postInfoAboutUser(this.client)
+    this.httpRequestsService.postInfoAboutUser(this.client);
 
-    this.signUpForm.reset();
+
+
+
+    this.router.navigate(['form-details'], {relativeTo: this.route});
   }
 
 }
