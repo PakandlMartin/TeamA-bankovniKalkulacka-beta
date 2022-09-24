@@ -1,4 +1,17 @@
+<div class="container">
 
-<p>Detail funguje</p>
+
+  <strong>Klient</strong>
+  <p>{{client.name}} {{client.surname}}</p>
+ <p>Typ klienta: {{client.applicantType}}</p>
+  <p>{{client.companyName}}</p>
+<hr>
+  <p><strong>Detail půjčky</strong></p>
+  <p>Výše půjčky: {{client.amount | currency : 'CZK '}}</p>
+
+  <p>Doba splácení: {{client.numOfMonths }} měsíců</p>
+  <p>Datum žádosti: {{client.created | date : 'shortDate' }}</p>
+  <p><strong>Status žádosti: {{client.status }}</strong></p>
 
 
+</div>

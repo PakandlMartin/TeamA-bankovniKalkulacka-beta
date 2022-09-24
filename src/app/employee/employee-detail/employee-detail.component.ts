@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute, Params} from "@angular/router";
 import {UserInfoService} from "../../user-info.service";
 import {HttpRequestsService} from "../../http-requests.service";
+import {AuthService} from "../../auth/auth.service";
 
 @Component({
   selector: 'app-employee-detail',
@@ -10,7 +11,10 @@ import {HttpRequestsService} from "../../http-requests.service";
 })
 export class EmployeeDetailComponent implements OnInit {
   id: number;
-  client: {};
+
+  client: {position: string, amount: number, numOfMonths: number, created: string,
+    status: string, id: string, name: string, surname: string,
+    companyName: string, applicantType: string};
 
   data: [
     {position: string, amount: number, numOfMonths: number, created: string,
@@ -19,20 +23,24 @@ export class EmployeeDetailComponent implements OnInit {
   ];
 
   constructor(private route: ActivatedRoute, private userInfoService: UserInfoService,
-              private httpRequestService: HttpRequestsService) { }
+              private httpRequestService: HttpRequestsService, private authService: AuthService) { }
 
   ngOnInit(): void {
     this.route.params
       .subscribe(
         (params: Params) => {
           this.id = +params['id'];
-          console.log(this.id);
+          this.authService.showClients().subscribe(responseData => {
+            this.data = responseData;
+            this.client = this.data[this.id];
+            console.log(this.client);
+          });
         }
       );
   }
 
   displayClients() {
-    this.httpRequestService.showClients().subscribe(responseData => {
+    this.authService.showClients().subscribe(responseData => {
       this.data = responseData;
     });
 
