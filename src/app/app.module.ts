@@ -24,7 +24,11 @@ const appRoutes: Routes = [
   { path: 'login', component: AuthComponent },
   { path: 'employee', component: AuthEmployeeComponent },
   { path: 'form', component: FormContactComponent },
-  { path: 'detail', component: EmployeeComponent }
+  { path: 'detail', component: EmployeeComponent },
+  { path: 'employee/detail', component: EmployeeComponent, children: [
+     // {path: '', component: EmployeeComponent},
+      {path: ':id', component: EmployeeDetailComponent}
+    ] }
 ];
 
 
