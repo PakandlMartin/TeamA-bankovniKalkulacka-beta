@@ -15,3 +15,16 @@
 hr{
   width: 90%;
 }
+.button-detail {
+  background: white;
+  color: #00843d;
+  border: 1px solid #00843d; ;
+  align-items: center;
+  line-height: 1.45em;
+  cursor: pointer;
+  font-weight: bold;
+  margin: auto 10px 20px;
+
+  width: 35%;
+  padding: 5px;
+}

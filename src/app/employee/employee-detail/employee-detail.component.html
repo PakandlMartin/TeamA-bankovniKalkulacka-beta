@@ -1,6 +1,7 @@
 <div class="container">
 
 
+
   <strong>Klient</strong>
   <p>{{client.name}} {{client.surname}}</p>
  <p>Typ klienta: {{client.applicantType}}</p>
@@ -11,7 +12,8 @@
 
   <p>Doba splácení: {{client.numOfMonths }} měsíců</p>
   <p>Datum žádosti: {{client.created | date : 'shortDate' }}</p>
-  <p><strong>Status žádosti: {{client.status }}</strong></p>
+  <p>Status žádosti: <strong>{{client.status }}</strong></p>
 
-
+  <button type="submit" class="button-detail">Schválit</button>
+  <button type="submit" class="button-detail">Zamítnout</button>
 </div>
