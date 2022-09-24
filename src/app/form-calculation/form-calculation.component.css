@@ -1,8 +1,8 @@
 .form-calculation {
     background-color: #00843d;
     color: white;
-    max-width: 50%;
-    min-width: 500px;
+    max-width: 80%;
+    max-width: 800px;
     margin: auto auto;
     border-radius: 3px;
 }
@@ -157,3 +157,4 @@ input[type="range"] {
 
     opacity: 1; /* Firefox */
   }
+
