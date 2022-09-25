@@ -71,24 +71,6 @@ console.log(responseData.body)
   }
 
 
-  login(login: string, password: string) {
-    let codedData = btoa (login + ':' + password);
-    return this.http.get<AuthResponseData>('http://localhost:8000/login',
-      {headers: new HttpHeaders({
-            Authorization: 'Basic ' + codedData
-          })}).pipe(tap(responseData => {
-            this.myToken = responseData.token
-    }));
-    }
-
-
-  showClients(): Observable<[{position: string, amount: number, numOfMonths: number, created: string,
-  status: string, id: string, name: string, surname: string, companyName: string, applicantType: string}]> {
-     return this.http.get<any>('http://localhost:8000/request/list',
-      {headers: new HttpHeaders({
-          Authorization: 'Bearer ' + this.myToken
-        })})
-  }
 
 }
 

@@ -27,10 +27,10 @@ const appRoutes: Routes = [
   { path: 'employee', component: AuthEmployeeComponent },
   { path: 'detail', component: EmployeeComponent },
   { path: 'employee/detail', component: EmployeeComponent, children: [
-     // {path: '', component: EmployeeComponent},
       {path: ':id', component: EmployeeDetailComponent}
     ] }
 ];
+
 
 
 @NgModule({

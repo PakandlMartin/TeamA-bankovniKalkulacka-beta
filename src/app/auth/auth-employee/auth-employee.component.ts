@@ -12,6 +12,7 @@ import {AuthService} from "../auth.service";
 })
 export class AuthEmployeeComponent implements OnInit {
   @ViewChild('authForm') signUpForm: NgForm;
+
   employee = {
     login: '',
     password: '',
@@ -22,15 +23,17 @@ export class AuthEmployeeComponent implements OnInit {
 
   ngOnInit(): void {
     this.autoLogin();
-
   }
 
-  autoLogin() {
+     autoLogin() {
     if(this.authService.isLoggedIn()) {
-      this.router.navigate(['employee/detail']);
-    }
+     // this.router.navigate(['detail'], {relativeTo: this.route});
 
+
+    }
   }
+
+
 
   onSubmit(form: NgForm) {
     this.employee.login = this.signUpForm.value.login;
@@ -38,10 +41,12 @@ export class AuthEmployeeComponent implements OnInit {
 
     let authObs: Subscription;
 
-    authObs = this.httpService.login(this.employee.login, this.employee.password).subscribe(resData => {
+    authObs = this.authService.login(this.employee.login, this.employee.password).subscribe(resData => {
       console.log(resData);
-      this.router.navigate(['detail'], {relativeTo: this.route});
       localStorage.setItem('employeeData',JSON.stringify(resData));
+      this.router.navigate(['detail'], {relativeTo: this.route});
+
+
     })
   };
 
