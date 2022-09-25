@@ -1,0 +1,146 @@
+body {
+ background-color: #F5F5F5; 
+}
+
+
+/* input.ng-invalid.ng-touched {
+    border: 1px solid red;
+  } */
+
+  h2 {
+    margin-top: 80px;
+    margin-bottom: 30px;
+    text-align: center;
+    font-size: 30px;
+  }
+  
+.container {
+  color: #666666;
+  font-size: 15px;
+}
+
+.form-person {
+  background-color: white;
+  margin: 0px auto 50px auto;
+padding: 20px 20px 20px 20px;
+  min-width: 500px;
+  max-width: 700px;
+}
+
+.flex {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 15px;
+}
+
+.form-person-in {
+margin: 20px 80px ; 
+}
+
+  .warning {
+    color: red;
+  }
+
+  option {
+    cursor: pointer;
+  }
+
+  select {
+    cursor: pointer;
+  }
+
+  input {
+    min-width: 150px;
+    min-height: 30px;
+    cursor: pointer;
+    font-size: 1.1rem;
+    padding: 0.5rem;
+ border: #CCCCCC solid 1px;
+    border-radius: 2px;
+    display: inline-block;
+  }
+
+  .applicantTypeSelect {
+    padding: 0.5rem;
+    min-width: 100%;
+    border: #CCCCCC solid 1px;
+    border-radius: 2px;
+    padding: 0.8em 0.5em;
+    font-size: 1rem;
+    cursor: pointer;
+    line-height: 1.1;
+    background-color: #fff;
+    background-image: linear-gradient(to top, #ffffff, #fff 33%);
+    font-size: 1.1rem;
+  }
+
+  option {
+    color: #2b712f;
+    background-color: white ;
+  }
+
+  option:hover {
+    background-color: white;
+  }
+
+  option {
+    font-size: 1.2rem;
+  }
+
+  .phoneDiv > input {
+    min-width: 120px;
+    max-width: 170px;
+    border-left: none;
+    border-radius: 2px 2px 0 0;
+  }
+
+  .phoneDiv > span {
+    border-left: solid #CCCCCC  1px ;
+    border-top: solid #CCCCCC  1px ;
+    border-bottom: solid #CCCCCC  1px ;
+    padding: 13px  7px 12px 0px;
+  }
+
+  button {
+    font-size: 1rem;
+    padding: 0.5rem 2rem;
+    text-align: center;
+    display: block;
+    color: #ffffff;
+    background-color: rgb(8, 115, 15) ;
+    margin-bottom: 20px;
+    cursor: pointer;
+    border: solid rgb(20, 121, 27) 2px ;
+    border-radius: 2px;
+    margin: 35px auto;
+}
+
+button:hover {
+  box-shadow: 0 0 6px rgb(8, 115, 15);
+}
+
+.positionSelect {
+  padding: 0.5rem;
+  min-width: 100%;
+  border: #CCCCCC solid 1px;
+  border-radius: 2px;
+  padding: 0.8em 0.5em;
+  font-size: 1rem;
+  cursor: pointer;
+  line-height: 1.1;
+  background-color: #fff;
+  background-image: linear-gradient(to top, #ffffff, #fff 33%);
+  font-size: 1.1rem;
+  margin-bottom: 15px;
+}
+
+/* min-width: 150px;
+min-height: 30px; */
+
+.smallHeader {
+  font-size: 1rem;
+  font-weight: normal;
+  margin-bottom: -10px;
+  padding-bottom: 0;
+  margin-top: -25px;
+}

@@ -20,10 +20,11 @@ import {EmployeeDetailComponent} from "./employee/employee-detail/employee-detai
 const appRoutes: Routes = [
   { path: '', component: FormCalculationComponent },
   { path: 'calculator', component: FormCalculationComponent },
+  { path: 'form', component: FormContactComponent },
+  { path: 'form/form-details', component: FormDetailsComponent },
   { path: 'client', component: FormContactComponent},
   { path: 'login', component: AuthComponent },
   { path: 'employee', component: AuthEmployeeComponent },
-  { path: 'form', component: FormContactComponent },
   { path: 'detail', component: EmployeeComponent },
   { path: 'employee/detail', component: EmployeeComponent, children: [
       {path: ':id', component: EmployeeDetailComponent}

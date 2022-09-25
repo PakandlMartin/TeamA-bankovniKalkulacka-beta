@@ -28,6 +28,8 @@ export class AuthEmployeeComponent implements OnInit {
      autoLogin() {
     if(this.authService.isLoggedIn()) {
      // this.router.navigate(['detail'], {relativeTo: this.route});
+
+
     }
   }
 
@@ -43,6 +45,7 @@ export class AuthEmployeeComponent implements OnInit {
       console.log(resData);
       localStorage.setItem('employeeData',JSON.stringify(resData));
       this.router.navigate(['detail'], {relativeTo: this.route});
+
 
     })
   };

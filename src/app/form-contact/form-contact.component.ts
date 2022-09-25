@@ -3,6 +3,7 @@ import { HttpRequestsService } from '../http-requests.service';
 import { UserInfoService } from '../user-info.service';
 import {ViewChild} from "@angular/core";
 import {NgForm} from '@angular/forms';
+import {ActivatedRoute, Router} from "@angular/router";
 
 
 @Component({
@@ -10,29 +11,7 @@ import {NgForm} from '@angular/forms';
   templateUrl: './form-contact.component.html',
   styleUrls: ['./form-contact.component.css']
 })
-export class FormContactComponent implements DoCheck {
-
-  // userForm = {
-  //   applicantType: "INDIVIDUAL",
-  //   name: "Tomáš",
-  //   surname: "Novák",
-  //   birthNum: "2056",
-  //   email:"TomasNovak@seznam.cz",
-  //   phone: undefined,
-  //   IC: "262",
-  //   address: {
-  //   street: undefined,
-  //   descNumber: undefined,
-  //   indicativeNumber: undefined,
-  //   city: undefined,
-  //   postalCode: undefined
-  // }
-  // }
-
-
-
-
-
+export class FormContactComponent implements DoCheck, OnInit {
 
   ngDoCheck(): void {
 this.client.amount = String(this.userInfoService.calculationInformation.amount)
@@ -40,22 +19,18 @@ this.client.numOfMonths = String(this.userInfoService.calculationInformation.num
   }
 
   constructor(private httpRequestsService: HttpRequestsService,
-    private userInfoService: UserInfoService
+    private userInfoService: UserInfoService,private router: Router, private route: ActivatedRoute
     ) { }
 
   ngOnInit(): void {
-   
   }
 
-  // onClick() {
-  //   console.log(this.userInfoService.calculationInformation);
-  //   this.httpRequestsService.postInfoAboutUser(this.userForm)
-  // }
 
   idCreated = false;
 
   selectedType = 'INDIVIDUAL';
 
+ 
 
   @ViewChild('f') signUpForm: NgForm;
 
@@ -103,10 +78,12 @@ this.client.numOfMonths = String(this.userInfoService.calculationInformation.num
 
     console.log(this.client);
     
-    this.httpRequestsService.postInfoAboutUser(this.client)
+    this.httpRequestsService.postInfoAboutUser(this.client);
 
 
-    this.signUpForm.reset();
+
+
+    this.router.navigate(['form-details'], {relativeTo: this.route});
   }
 
 }
@@ -115,3 +92,19 @@ this.client.numOfMonths = String(this.userInfoService.calculationInformation.num
 
 
 
+  // userForm = {
+  //   applicantType: "INDIVIDUAL",
+  //   name: "Tomáš",
+  //   surname: "Novák",
+  //   birthNum: "2056",
+  //   email:"TomasNovak@seznam.cz",
+  //   phone: undefined,
+  //   IC: "262",
+  //   address: {
+  //   street: undefined,
+  //   descNumber: undefined,
+  //   indicativeNumber: undefined,
+  //   city: undefined,
+  //   postalCode: undefined
+  // }
+  // }
