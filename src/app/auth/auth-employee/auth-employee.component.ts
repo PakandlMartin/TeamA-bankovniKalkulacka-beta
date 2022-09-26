@@ -1,7 +1,7 @@
 import {Component, OnInit, ViewChild} from '@angular/core';
 import {NgForm} from "@angular/forms";
 import {ActivatedRoute, Router} from "@angular/router";
-import { Subscription} from "rxjs";
+import {Subscription} from "rxjs";
 import {HttpRequestsService} from "../../http-requests.service";
 import {AuthService} from "../auth.service";
 
@@ -19,18 +19,11 @@ export class AuthEmployeeComponent implements OnInit {
   }
 
   constructor(private httpService: HttpRequestsService, private router: Router,
-              private route: ActivatedRoute, private authService: AuthService) { }
-
-  ngOnInit(): void {
-    this.autoLogin();
+              private route: ActivatedRoute, private authService: AuthService) {
   }
 
-     autoLogin() {
-    if(this.authService.isLoggedIn()) {
-     // this.router.navigate(['detail'], {relativeTo: this.route});
-
-
-    }
+  ngOnInit(): void {
+    this.authService.isLoggedIn();
   }
 
 
@@ -38,12 +31,8 @@ export class AuthEmployeeComponent implements OnInit {
   onSubmit(form: NgForm) {
     this.employee.login = this.signUpForm.value.login;
     this.employee.password = this.signUpForm.value.password;
-
-    let authObs: Subscription;
-
-    authObs = this.authService.login(this.employee.login, this.employee.password).subscribe(resData => {
-      console.log(resData);
-      localStorage.setItem('employeeData',JSON.stringify(resData));
+    this.authService.login(this.employee.login, this.employee.password).subscribe(resData => {
+      localStorage.setItem('employeeData', JSON.stringify(resData));
       this.router.navigate(['detail'], {relativeTo: this.route});
 
 
