@@ -1,7 +1,9 @@
 <router-outlet></router-outlet>
 
 <div class="top-container">
-<button type="submit" (click)="displayRequests()">Zobraz žádosti</button>
+<button type="submit" (click)= "displayRequests()">Zobraz žádosti</button>
+  <button type="submit" (click)="sortBySurname()">Seřadit dle příjmení</button>
+  <button type="submit" (click)="sortByAmount()">Seřadit dle výše půjčky</button>
 </div>
 
 <div class="overview" *ngFor="let item of data, let i = index">
@@ -10,12 +12,14 @@
     <strong>{{item.name}} {{item.surname}}</strong>
     <p>{{item.amount | currency : 'CZK '}}</p>
     <p>{{item.created | date : 'shortDate' }}</p>
+    <p>{{item.status }}</p>
 
     <div class="pull-left">
       <h4 class="list-group-item-heading"> </h4>
     </div>
   </a>
 </div>
+
 
 
 
