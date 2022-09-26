@@ -15,16 +15,29 @@
 hr{
   width: 90%;
 }
-.button-detail {
+.button-detail-approve {
   background: white;
   color: #00843d;
-  border: 1px solid #00843d; ;
+  border: 2px solid #00843d;
   align-items: center;
   line-height: 1.45em;
   cursor: pointer;
   font-weight: bold;
   margin: auto 10px 20px;
 
+  width: 35%;
+  padding: 5px;
+}
+
+.button-detail-cancel {
+  background: white;
+  color: darkred;
+  border: 2px solid darkred;
+  align-items: center;
+  line-height: 1.45em;
+  cursor: pointer;
+  font-weight: bold;
+  margin: auto 10px 20px;
   width: 35%;
   padding: 5px;
 }

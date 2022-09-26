@@ -1,4 +1,4 @@
-import {Component, Input, OnInit, DoCheck} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute, Params} from "@angular/router";
 import {UserInfoService} from "../../user-info.service";
 import {HttpRequestsService} from "../../http-requests.service";
@@ -9,47 +9,99 @@ import {AuthService} from "../../auth/auth.service";
   templateUrl: './employee-detail.component.html',
   styleUrls: ['./employee-detail.component.css']
 })
-export class EmployeeDetailComponent implements  DoCheck {
- @Input() id: number;
+export class EmployeeDetailComponent implements OnInit {
+  id: number;
 
 
-  client: {position: string, amount: number, numOfMonths: number, created: string,
-    status: string, id: string, name: string, surname: string,
-    companyName: string, applicantType: string};
+  client: {
+    applicantType: string,
+    name: string,
+    surname: string,
+    birthNum: string,
+    nationality: string,
+    email: string,
+    phone: string,
+    IC: string,
+    position: string,
+    companyName: string,
+    amount: number,
+    numOfMonths: number,
+    address: {
+      street: string,
+      descNumber: number,
+      indicativeNumber: number,
+      city: string,
+      postalCode: number
+    },
+    created: string,
+    status: string,
+    id: string
+  };
 
-/* data: [
-    {position: string, amount: number, numOfMonths: number, created: string,
+  data: [
+    {
+      position: string, amount: number, numOfMonths: number, created: string,
       status: string, id: string, name: string, surname: string,
-      companyName: string, applicantType: string}
+      companyName: string, applicantType: string
+    }
   ];
 
- */
-
-  clients: [{position: string, amount: number, numOfMonths: number, created: string,
-    status: string, id: string, name: string, surname: string,
-    companyName: string, applicantType: string}
-
-  ]
 
 
   constructor(private route: ActivatedRoute, private userInfoService: UserInfoService,
-              private httpRequestService: HttpRequestsService, private authService: AuthService) { }
+              private httpRequestService: HttpRequestsService, private authService: AuthService) {
+  }
 
-   ngOnInit(): void {
+  ngOnInit(): void {
     this.route.params
       .subscribe(
         (params: Params) => {
-          this.id = +params['id'];
+          this.id = params['id'];
           this.authService.id = this.id;
-          this.authService.displayRequests();
-            this.client = this.authService.data[this.authService.id];
-          });
-        }
+          console.log(this.id);
+          this.authService.displayDetails(this.id).subscribe(resultData => {
+            this.client = resultData;
+          })
+
+        });
+  }
 
 
-  ngDoCheck () {
+  onApproveRequest(clientId) {
+    this.authService.approveRequest(clientId).subscribe(resultData => {
+      this.client = resultData;
+    });
 
   }
 
+  onCancelRequest(clientId) {
+    this.authService.cancelRequest(clientId).subscribe(resultData => {
+      this.client = resultData;
+    });
+  }
+
+  formatStatus(status) {
+    if (status === 'PENDING') {
+      return 'Neschválená'
+    } else {
+      return 'Schválená'
+    }
+  }
+
+  formatTypeOfClient(type) {
+    if (type === 'INDIVIDUAL') {
+      return 'Fyzická osoba'
+    } else if (type === 'LEGAL_ENTITY') {
+      return 'Právnická osoba'
+    } else {
+      return 'OSVČ'
+    }
+  }
+
+  numberWithSpaces(number) {
+    return (
+      (number.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ")).toString()
+    );
+  }
 
 }

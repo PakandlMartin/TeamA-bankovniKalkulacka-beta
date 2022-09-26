@@ -1,5 +1,6 @@
 
 import {Component, OnInit} from '@angular/core';
+import {AuthService} from "./auth/auth.service";
 
 
 
@@ -11,13 +12,11 @@ import {Component, OnInit} from '@angular/core';
 
 })
 export class AppComponent implements OnInit {
-  clients: { name: string, id: number, nationality: string, email: string,
-    phone: string, street: string, streetNo: string, city: string, psc: string} [] = [];
 
-  constructor() {
+
+  constructor(private authService: AuthService) {
   }
 
-  title = 'projekt-kalkulacka';
 
   ngOnInit() {
 
